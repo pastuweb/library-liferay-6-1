@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.appuntivari.mylibrary.model.MyLibrary" />
+	<class name="com.appuntivari.mylibrary.model.impl.MyLibraryImpl" table="AV_MyLibrary">
+		<cache usage="read-write" />
+		<id name="id_book" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="titolo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="autori" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="stato" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="link_more_info" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="note" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>
