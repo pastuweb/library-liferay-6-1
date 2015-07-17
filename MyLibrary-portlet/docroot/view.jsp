@@ -18,4 +18,4 @@
 
 <portlet:defineObjects />
 
-This is the <b>AppuntiVariMyLibrary</b> portlet.
+This is the <b>MyLibrary</b> portlet.

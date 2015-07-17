@@ -14,6 +14,7 @@ import javax.portlet.PortletException;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
+import com.appuntivari.mylibrary.custom.utils.EmailSmtpUtil;
 import com.appuntivari.mylibrary.model.MyLibrary;
 import com.appuntivari.mylibrary.service.MyLibraryLocalServiceUtil;
 import com.itextpdf.text.BaseColor;
@@ -39,6 +40,10 @@ import com.liferay.portlet.calendar.model.CalEvent;
 import com.liferay.portlet.calendar.service.CalEventLocalServiceUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 
+import java.util.*;
+
+import javax.mail.*;
+import javax.mail.internet.*;
 
 public class MyLibraryViewBooksPortlet extends MVCPortlet {
 	
@@ -115,14 +120,21 @@ public class MyLibraryViewBooksPortlet extends MVCPortlet {
 			}
 			
 			
+			
 			document.add(table);
 			document.close();
 			
 			
+			
+	/*send email*/
+			EmailSmtpUtil.sendEmailFormatPlain("francesco.pasturenzi@guest.telecomitalia.it", "Qualcuno ha scaricato il PDF della Library", "Alert Download Library - appuntivari.net");
+	/*fine send email*/		
+			
 			response.setContentType("application/pdf");
-			response.setProperty(HttpHeaders.CONTENT_DISPOSITION,"attachement;filename=Pasturenzi_Francesco_library");
+			response.setProperty(HttpHeaders.CONTENT_DISPOSITION,"attachement;filename=Pasturenzi_Francesco_library.pdf");
 			response.addProperty(HttpHeaders.CACHE_CONTROL,"max-age=3600, must-revalidate");
 			response.setContentLength(baos.size());
+			
 			
 			System.out.println("baos.size(): "+baos.size());
 			
