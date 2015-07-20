@@ -1,5 +1,7 @@
 # library-liferay-6-1
-Automatically exported from code.google.com/p/library-liferay-6-1
+-
+It was a project shared by Google Code Hosting Projects.
+-
 
 With this portlet you can share the books you've read, you're reading.
 For every book you can enter: Title, Description, Author, More Info, Notes, Read Status.
